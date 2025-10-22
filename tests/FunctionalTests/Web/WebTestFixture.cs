@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.eShopWeb.Infrastructure.Data;
 using Microsoft.eShopWeb.Infrastructure.Identity;
+using Microsoft.eShopWeb.Web; // <-- ensure Program is resolved from the web project
 using Microsoft.eShopWeb.Web.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -12,7 +14,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Microsoft.eShopWeb.FunctionalTests.Web;
 
-public class TestApplication : WebApplicationFactory<IBasketViewModelService>
+public class TestApplication : WebApplicationFactory<Program>
 {
     private readonly string _environment = "Development";
 
